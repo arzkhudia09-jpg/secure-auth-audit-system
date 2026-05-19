@@ -1,0 +1,7 @@
+env/
+instance/*.db
+security_logs/*.log
+__pycache__/
+.env
+*.pyc
+venv/

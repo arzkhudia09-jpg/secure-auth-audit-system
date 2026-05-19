@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Login - Secure Auth Demo</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body class="login-body">
+    <div class="security-bg-animation"></div>
+    <div class="login-container">
+        <div class="security-header">
+            <div class="lock-icon">🔒</div>
+            <h1>Secure Authentication</h1>
+            <p class="subtitle">Enterprise-Grade Security Demo</p>
+        </div>
+
+        <div class="glass-card login-card">
+            <div class="card-header">
+                <h2>Login</h2>
+                <p class="card-subtitle">Access your secure account</p>
+            </div>
+
+            
+            
+            <div class="flash-container">
+                
+                <div class="alert alert-success">
+                    <span class="alert-icon">✅</span>
+                    <span>Account created successfully. Please log in.</span>
+                </div>
+                
+            </div>
+            
+            
+
+            <form class="login-form" method="POST" action="/login">
+                <input id="csrf_token" name="csrf_token" type="hidden" value="IjcxNGM4NTM3NGYxMDQ3MjIwNjBjNjJhNTEyYzdkOGUwMmE2MDM4Njki.agyjYQ.cQXB60aT4CYfGV2YUxtdUo1WSps">
+                <div class="form-group">
+                    <label for="identifier" class="form-label">
+                        <span class="label-icon">✉️</span>
+                        Username or Email
+                    </label>
+                    <input type="text" id="identifier" name="identifier" class="form-input"
+                        placeholder="Username or email" required aria-label="Username or email"
+                        value="">
+                    <small class="form-hint">Login with your username or email address.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">
+                        <span class="label-icon">🔐</span>
+                        Password
+                    </label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="password" name="password" class="form-input"
+                            placeholder="Enter your secure password" required aria-label="Password">
+                        <button type="button" class="password-toggle"
+                            onclick="togglePasswordVisibility(this)"
+                            aria-label="Toggle password visibility">👁️</button>
+                    </div>
+                    <small class="form-hint">Keep your password confidential and secure.</small>
+                </div>
+
+                <div class="form-actions">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="remember" name="remember" class="form-checkbox"
+                            >
+                        <label for="remember" class="checkbox-label">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password-link">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-login">
+                    <span class="btn-icon">🔓</span>
+                    Login Securely
+                </button>
+            </form>
+
+            <div class="security-tips">
+                <h3 class="tips-title">🛡️ Secure Login Tips</h3>
+                <ul class="tips-list">
+                    <li>Use a strong, unique password</li>
+                    <li>Never share your password with anyone</li>
+                    <li>Check the URL starts with <code>https://</code></li>
+                    <li>Clear cookies after using a public device</li>
+                </ul>
+            </div>
+
+            <div class="auth-switch">
+                <p>Don't have an account? <a href="/register" class="auth-link">Create one now</a></p>
+            </div>
+        </div>
+
+        <div class="security-footer">
+            <div class="status-indicator">
+                <span class="status-dot"></span>
+                <span class="status-text">Secure Connection Established</span>
+            </div>
+            <small class="security-notice">Your connection is protected by SSL/TLS.</small>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>

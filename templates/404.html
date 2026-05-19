@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Not Found</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70vh;
+        }
+    </style>
+</head>
+
+<body class="dashboard-body">
+    <main class="center">
+        <div class="glass-card" style="max-width:700px;text-align:center;">
+            <h1 style="font-size:48px;">404</h1>
+            <h2>Page Not Found</h2>
+            <p class="text-secondary">The page you requested could not be found. Please check the URL or return to the
+                dashboard.</p>
+            <div style="margin-top:20px;"><a href="{{ url_for('login') }}" class="btn btn-primary">Return to Login</a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
