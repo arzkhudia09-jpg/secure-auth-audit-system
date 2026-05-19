@@ -53,10 +53,14 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
 app.config['SESSION_REFRESH_EACH_REQUEST'] = True
 app.config['WTF_CSRF_TIME_LIMIT'] = None
 
-# When using Neon/PostgreSQL on Render, SQLAlchemy will use DATABASE_URL
+# When using Neon/PostgreSQL on Render, SQLAlchemy should use the psycopg driver
 if app.config['SQLALCHEMY_DATABASE_URI'].startswith('postgres://'):
     app.config['SQLALCHEMY_DATABASE_URI'] = app.config['SQLALCHEMY_DATABASE_URI'].replace(
-        'postgres://', 'postgresql://', 1
+        'postgres://', 'postgresql+psycopg://', 1
+    )
+elif app.config['SQLALCHEMY_DATABASE_URI'].startswith('postgresql://'):
+    app.config['SQLALCHEMY_DATABASE_URI'] = app.config['SQLALCHEMY_DATABASE_URI'].replace(
+        'postgresql://', 'postgresql+psycopg://', 1
     )
 
 os.makedirs(INSTANCE_DIR, exist_ok=True)
